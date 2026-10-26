@@ -5,7 +5,7 @@ const TASKS = new Map(DATA.tasks.map((t) => [t.id, t]));
 const KEY = (id) => `yomesumo:${id}`;
 
 // Storage: Upstash Redis on Vercel; in-memory fallback for local testing.
-let store;
+let store, storageKind = "memory";
 function getStore() {
   if (store) return store;
   const url = process.env.KV_REST_API_URL || process.env.UPSTASH_REDIS_REST_URL;
@@ -13,6 +13,7 @@ function getStore() {
   if (url && token) {
     const { Redis } = require("@upstash/redis");
     const r = new Redis({ url, token });
+    storageKind = "redis";
     store = {
       async all(ids) {
         const p = r.pipeline();
@@ -101,7 +102,7 @@ module.exports = async function handler(req, res) {
     }
     if (req.method === "GET") {
       const admin = isAdminReq(qKey);
-      return send(res, 200, { ...DATA, admin, signups: await snapshot(admin) });
+      return send(res, 200, { ...DATA, admin, storage: storageKind, signups: await snapshot(admin) });
     }
 
     const body = await readBody(req);

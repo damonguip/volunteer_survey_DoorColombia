@@ -263,6 +263,8 @@ function render(){
   const urgOpen = T.filter(t => t.priority==="Urgente" && !(S[t.id]||[]).length).length;
   if (state.admin && !$("adminbar")) $("nav").before(el("div",{class:"adminbar",id:"adminbar"},
     el("p",{style:"margin:0"},"Vista de Junta: ves los números y puedes quitar cualquier nombre."),
+    el("p",{style:"margin:6px 0 0;font-weight:500;color:" + (state.storage==="redis" ? "var(--ok)" : "var(--urg)")},
+      state.storage==="redis" ? "Base de datos conectada ✓" : "Base de datos NO conectada: los nombres no se están guardando. Revisa Storage en Vercel."),
     el("div",{class:"admin-actions"},
       el("button",{class:"abtn",onclick:downloadCsv},"Descargar lista (Excel)"),
       el("button",{class:"abtn",onclick:()=>{ LS.set("yms-admin",""); location.href="/"; }},"Salir"),
