@@ -1,0 +1,9 @@
+{
+  "name": "doorcolombia-yo-me-sumo",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Página de inscripción de voluntarios para el lanzamiento de DoorColombia (21 nov).",
+  "scripts": { "dev": "node dev-server.js" },
+  "dependencies": { "@upstash/redis": "1.34.3" },
+  "engines": { "node": ">=18" }
+}

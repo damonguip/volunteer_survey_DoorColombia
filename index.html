@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>DoorColombia · Yo me sumo</title>
+<meta name="description" content="Escoge una tarea para el lanzamiento de DoorColombia del 21 de noviembre.">
+<meta property="og:title" content="DoorColombia · Yo me sumo">
+<meta property="og:description" content="Escoge lo que te inspire y pon tu nombre. Lanzamiento del 21 de noviembre.">
+<meta name="theme-color" content="#14213D">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Figtree:wght@400;500;600&display=swap">
+<style>
+/* Layout: one narrow column (phone first), sticky front chips, cards grouped by front then priority */
+:root{
+  --ink:#14213D; --paper:#F5F6F9; --card:#FFFFFF; --line:#E1E4EC; --muted:#5B6478;
+  --sun:#F2B705; --sun-ink:#5A4300; --sun-soft:#FFF4CC;
+  --urg:#B42318; --urg-soft:#FDECEA; --prep:#8A5A00; --prep-soft:#FFF1D6; --day:#1D4E89; --day-soft:#E4EEFA;
+  --ok:#1B7A47; --ok-soft:#E3F3EA;
+  --display:"Bricolage Grotesque", "Avenir Next", system-ui, sans-serif;
+  --body:"Figtree", "Segoe UI", system-ui, sans-serif;
+  --r:14px;
+}
+@media (prefers-color-scheme: dark){
+  :root{ --ink:#E9ECF4; --paper:#0F1626; --card:#172036; --line:#2A3550; --muted:#A3ADC2;
+    --sun:#F7C531; --sun-ink:#1A1300; --sun-soft:#3A3010;
+    --urg:#FF8A7A; --urg-soft:#3A1A1A; --prep:#F2C063; --prep-soft:#35290F; --day:#8DB8F0; --day-soft:#18294A;
+    --ok:#6FD39C; --ok-soft:#14321F; color-scheme:dark }
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.5 var(--body);
+  padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px));padding-bottom:max(48px, env(safe-area-inset-bottom, 0px))}
+.wrap{max-width:680px;margin:0 auto}
+header{padding-block:max(28px, env(safe-area-inset-top, 0px)) 8px}
+.eyebrow{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600;display:flex;gap:8px;align-items:center}
+.flag{display:inline-flex;width:22px;height:14px;border-radius:2px;overflow:hidden;flex-direction:column}
+.flag i{display:block;flex:2;background:#FCD116}.flag i+i{flex:1;background:#003893}.flag i+i+i{background:#CE1126}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(40px,11vw,60px);line-height:.95;margin:10px 0 10px;letter-spacing:-.02em;text-wrap:balance}
+h1 mark{background:linear-gradient(transparent 66%, var(--sun) 66% 94%, transparent 94%);color:inherit;padding:0 2px}
+.lead{margin:0;color:var(--muted);max-width:52ch}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:16px;margin-top:20px;display:grid;gap:14px}
+.progress{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;font-variant-numeric:tabular-nums}
+.progress b{font-family:var(--display);font-size:28px;font-weight:700}
+.bar{height:8px;background:var(--line);border-radius:99px;overflow:hidden}
+.bar span{display:block;height:100%;width:0;background:var(--sun);transition:width .5s ease}
+.urgent-left{font-size:14px;color:var(--urg);font-weight:600}
+label{font-size:14px;font-weight:600}
+.namerow{display:flex;gap:8px}
+.fields{display:grid;gap:10px}
+.fields label{display:block;margin-bottom:6px}
+.fields input{width:100%}
+.ph{font-weight:400;opacity:.8;font-variant-numeric:tabular-nums}
+.person .ph{display:block;font-size:14px;color:var(--muted)}
+.admin-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.abtn{font:inherit;font-size:14px;font-weight:600;text-decoration:none;border:1px solid currentColor;background:var(--card);color:var(--day);border-radius:99px;padding:8px 14px;cursor:pointer}
+input[type=password]{width:100%;font:inherit;font-size:17px;padding:12px 14px;border:1.5px solid var(--line);border-radius:12px;background:var(--paper);color:var(--ink)}
+.adminbar{margin-top:16px;background:var(--day-soft);color:var(--day);font-size:14px;font-weight:600;border-radius:10px;padding:8px 12px}
+input[type=text],input[type=tel]{flex:1;min-width:0;font:inherit;font-size:17px;padding:12px 14px;border:1.5px solid var(--line);border-radius:12px;background:var(--paper);color:var(--ink)}
+input[type=text]:focus,input[type=tel]:focus{outline:none;border-color:var(--ink)}
+input.err{border-color:var(--urg)}
+.hint{font-size:13px;color:var(--muted);margin:0}
+nav{position:sticky;top:env(safe-area-inset-top, 0px);z-index:5;background:var(--paper);padding-block:12px;margin-top:8px;display:flex;gap:8px;overflow-x:auto;scrollbar-width:none}
+nav::-webkit-scrollbar{display:none}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top, 0px);z-index:10;background:var(--paper)}
+.chip{flex:none;font:inherit;font-size:14px;font-weight:500;padding:8px 14px;border-radius:99px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer;white-space:nowrap}
+.chip[aria-pressed=true]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.chip small{opacity:.7;margin-left:4px;font-variant-numeric:tabular-nums}
+section.front{margin-top:28px}
+h2{font-family:var(--display);font-size:24px;font-weight:700;margin:0 0 4px;letter-spacing:-.01em}
+.front-meta{font-size:14px;color:var(--muted);margin:0 0 8px;font-variant-numeric:tabular-nums}
+h3{font-size:12px;letter-spacing:.08em;text-transform:uppercase;margin:20px 0 8px;font-weight:600;display:flex;align-items:center;gap:8px}
+h3::before{content:"";width:8px;height:8px;border-radius:50%;background:currentColor}
+h3.u{color:var(--urg)}h3.p{color:var(--prep)}h3.d{color:var(--day)}
+.list{display:grid;gap:10px}
+.task{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:14px 16px;display:grid;gap:8px}
+.task.full{background:var(--ok-soft);border-color:transparent}
+.task.mine{box-shadow:inset 0 0 0 2px var(--sun)}
+.t-title{font-weight:600;font-size:17px;line-height:1.3;margin:0}
+.t-detail{margin:0;font-size:14px;color:var(--muted)}
+.t-meta{font-size:13px;color:var(--muted);display:flex;gap:6px 14px;flex-wrap:wrap;font-variant-numeric:tabular-nums}
+.t-meta .due{font-weight:600;color:var(--ink)}
+.t-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.names{display:flex;gap:6px;flex-wrap:wrap;min-width:0}
+.who{display:inline-flex;align-items:center;gap:4px;font-size:14px;font-weight:500;padding:4px 10px;border-radius:99px;background:var(--ok-soft);color:var(--ok)}
+.task.full .who{background:var(--card)}
+.who.me{background:var(--sun-soft);color:var(--sun-ink)}
+.who button{border:0;background:none;color:inherit;font:inherit;font-size:16px;line-height:1;padding:0 0 0 4px;cursor:pointer}
+.free{font-size:14px;color:var(--muted)}
+.join{font:inherit;font-weight:600;font-size:15px;border:0;border-radius:99px;padding:10px 18px;background:var(--sun);color:#1A1300;cursor:pointer}
+.join:active{transform:scale(.97)}
+.join[disabled]{opacity:.6;cursor:wait}
+.done{font-size:14px;font-weight:600;color:var(--ok)}
+button:focus-visible,.chip:focus-visible{outline:3px solid var(--sun);outline-offset:2px}
+.people{display:grid;gap:10px;margin-top:20px}
+.person{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:12px 16px}
+.person b{font-size:16px}
+.person ul{margin:6px 0 0;padding-left:18px;font-size:14px;color:var(--muted)}
+.empty{color:var(--muted);font-size:15px;padding:20px 0}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom, 0px));transform:translateX(-50%);background:var(--ink);color:var(--paper);padding:12px 18px;border-radius:12px;font-size:15px;max-width:calc(100% - 32px);z-index:20}
+.status{font-size:12px;color:var(--muted);text-align:center;margin-top:32px}
+footer{margin-top:8px;text-align:center;font-size:13px;color:var(--muted)}
+@media (prefers-reduced-motion: reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="eyebrow"><span class="flag" aria-hidden="true"><i></i><i></i><i></i></span>DoorColombia · Lanzamiento 21 nov</div>
+    <h1>Yo me <mark>sumo</mark></h1>
+    <p class="lead">Escoge lo que te inspire, toca “Me sumo” y listo. Todos ven al momento qué tareas ya tienen responsable.</p>
+    <div class="panel">
+      <div>
+        <div class="progress"><span><b id="taken">–</b> <span id="takenOf">de 28 tareas con responsable</span></span><span class="urgent-left" id="urgLeft"></span></div>
+        <div class="bar" aria-hidden="true"><span id="bar"></span></div>
+      </div>
+      <div>
+        <div class="fields">
+          <div><label for="myName">Tu nombre</label><input type="text" id="myName" autocomplete="name" placeholder="Nombre y apellido" maxlength="40"></div>
+          <div><label for="myPhone">Tu WhatsApp</label><input type="tel" id="myPhone" autocomplete="tel" inputmode="tel" placeholder="+31 6 1234 5678" maxlength="24"></div>
+        </div>
+        <p class="hint" id="nameHint" style="margin-top:8px">Los escribes una vez y los usamos en cada tarea que escojas. Tu número solo lo ve la Junta.</p>
+      </div>
+    </div>
+  </header>
+
+  <nav id="nav" aria-label="Filtrar por frente"></nav>
+  <main id="main"><p class="empty">Cargando tareas…</p></main>
+  <p class="status" id="status"></p>
+  <footer>¿Conoces a alguien ideal para una tarea? Escríbelo en el grupo de WhatsApp.</footer>
+</div>
+<div class="toast" id="toast" hidden></div>
+
+<script>
+const API_BASE = "/api/signups";
+const LS = { get(k){ try{return localStorage.getItem(k)}catch(e){return null} }, set(k,v){ try{localStorage.setItem(k,v)}catch(e){} } };
+const isJunta = location.pathname.replace(/\/$/,"") === "/junta";
+let adminKey = isJunta ? (LS.get("yms-admin") || "") : "";
+let token = LS.get("yms-token");
+if (!token) { token = (crypto.randomUUID ? crypto.randomUUID() : String(Math.random()).slice(2) + Date.now()); LS.set("yms-token", token); }
+let mine = new Set(JSON.parse(LS.get("yms-mine") || "[]"));
+const saveMine = () => LS.set("yms-mine", JSON.stringify([...mine]));
+
+let state = null, filter = "all", busy = new Set();
+const PRI = [["Urgente","u"],["Preparación","p"],["Día del evento","d"]];
+const $ = (id) => document.getElementById(id);
+const nameEl = $("myName");
+const phoneEl = $("myPhone");
+const HINT = "Los escribes una vez y los usamos en cada tarea que escojas. Tu número solo lo ve la Junta.";
+nameEl.value = LS.get("yms-name") || "";
+phoneEl.value = LS.get("yms-phone") || "";
+function clearErr(){ nameEl.classList.remove("err"); phoneEl.classList.remove("err"); $("nameHint").textContent = HINT; $("nameHint").style.color = ""; }
+nameEl.addEventListener("input", () => { LS.set("yms-name", nameEl.value.trim()); clearErr(); });
+phoneEl.addEventListener("input", () => { LS.set("yms-phone", phoneEl.value.trim()); clearErr(); });
+function fieldError(input, msg){ input.classList.add("err"); $("nameHint").textContent = msg; $("nameHint").style.color = "var(--urg)"; input.scrollIntoView({behavior:"smooth",block:"center"}); input.focus({preventScroll:true}); }
+
+function toast(msg){ const t=$("toast"); t.textContent=msg; t.hidden=false; clearTimeout(toast.t); toast.t=setTimeout(()=>t.hidden=true,3200); }
+function el(tag, attrs={}, ...kids){ const e=document.createElement(tag); for(const [k,v] of Object.entries(attrs)){ if(k==="class") e.className=v; else if(k.startsWith("on")) e.addEventListener(k.slice(2),v); else e.setAttribute(k,v);} kids.flat(Infinity).forEach(k=>k!=null&&e.append(k)); return e; }
+
+async function call(method, body){
+  const headers = body ? {"Content-Type":"application/json"} : {};
+  if (adminKey) headers["X-Admin-Key"] = adminKey;
+  const r = await fetch(API_BASE, { method, headers, body: body ? JSON.stringify(body) : undefined, cache:"no-store" });
+  const j = await r.json().catch(()=>({}));
+  if (j.signups && state) state.signups = j.signups;
+  if (!r.ok) throw new Error(j.error || "Algo falló. Inténtalo de nuevo.");
+  return j;
+}
+
+async function load(){
+  try { const j = await call("GET"); state = j; $("status").textContent = "Actualizado " + new Date().toLocaleTimeString("es-CO",{hour:"2-digit",minute:"2-digit"}); render(); }
+  catch(e){ $("status").textContent = "Sin conexión. Reintentando…"; }
+}
+
+async function join(task){
+  const name = nameEl.value.trim();
+  const phone = phoneEl.value.trim();
+  if (name.length < 2) return fieldError(nameEl, "Escribe tu nombre para sumarte.");
+  if (phone.replace(/[^\d]/g,"").length < 8) return fieldError(phoneEl, "Escribe tu número de WhatsApp para que podamos coordinar contigo.");
+  busy.add(task.id); render();
+  try { const j = await call("POST", { taskId: task.id, name, phone, token }); mine.add(j.sid); saveMine(); toast("¡Gracias, " + name.split(" ")[0] + "! Te sumaste a: " + task.title); }
+  catch(e){ toast(e.message); }
+  busy.delete(task.id); render();
+}
+async function leave(task, s){
+  busy.add(task.id); render();
+  try { await call("DELETE", { taskId: task.id, sid: s.sid, token }); mine.delete(s.sid); saveMine(); toast("Quitamos el nombre de: " + task.title); }
+  catch(e){ toast(e.message); }
+  busy.delete(task.id); render();
+}
+
+async function downloadCsv(){
+  try {
+    const r = await fetch(API_BASE + "?format=csv", { headers: {"X-Admin-Key": adminKey}, cache:"no-store" });
+    if (!r.ok) throw new Error();
+    const url = URL.createObjectURL(await r.blob());
+    const a = el("a",{href:url, download:"doorcolombia-voluntarios.csv"}); document.body.append(a); a.click(); a.remove();
+    setTimeout(()=>URL.revokeObjectURL(url), 5000);
+  } catch(e){ toast("No se pudo descargar. Revisa la clave."); }
+}
+
+function juntaLogin(msg){
+  const keyIn = el("input",{type:"password",id:"adminKeyIn",autocomplete:"current-password",placeholder:"Clave de la Junta"});
+  const go = async () => {
+    adminKey = keyIn.value.trim(); if (!adminKey) return;
+    await load();
+    if (state && state.admin) { LS.set("yms-admin", adminKey); render(); }
+    else { adminKey = ""; juntaLogin("Esa clave no es correcta."); }
+  };
+  keyIn.addEventListener("keydown", e => { if (e.key === "Enter") go(); });
+  $("main").replaceChildren(el("div",{class:"panel"},
+    el("label",{for:"adminKeyIn"},"Acceso de la Junta"), keyIn,
+    msg ? el("p",{class:"hint",style:"color:var(--urg)"},msg) : el("p",{class:"hint"},"La clave se guarda solo en este teléfono."),
+    el("button",{class:"join",onclick:go},"Entrar")));
+  keyIn.focus();
+}
+
+async function copySummary(){
+  const T = state.tasks, S = state.signups;
+  const lines = ["*DoorColombia · Yo me sumo* 🇨🇴", ""];
+  const filled = T.filter(t => (S[t.id]||[]).length).length;
+  lines.push(`✅ ${filled} de ${T.length} tareas ya tienen responsable. ¡Gracias!`, "");
+  const urg = T.filter(t => t.priority==="Urgente" && !(S[t.id]||[]).length);
+  if (urg.length) { lines.push("🔴 *Urgentes que siguen libres:*"); urg.forEach(t => lines.push(`• ${t.title} (hasta el ${t.due})`)); lines.push(""); }
+  const rest = T.filter(t => t.priority!=="Urgente" && !(S[t.id]||[]).length).length;
+  if (rest) lines.push(`Y ${rest} tareas más esperan por ti.`);
+  lines.push("👉 " + location.origin + "/");
+  const text = lines.join("\n");
+  try { await navigator.clipboard.writeText(text); toast("Resumen copiado. Pégalo en el grupo."); }
+  catch(e){ const ta = el("textarea",{}); ta.value = text; document.body.append(ta); ta.select(); try{document.execCommand("copy"); toast("Resumen copiado. Pégalo en el grupo.");}catch(_){toast("No se pudo copiar.");} ta.remove(); }
+}
+
+function taskCard(t){
+  const list = state.signups[t.id] || [];
+  const full = list.length >= t.need;
+  const imIn = list.some(s => mine.has(s.sid));
+  const names = list.map(s => {
+    const me = mine.has(s.sid);
+    return el("span",{class:"who"+(me?" me":"")}, me ? s.name + " (tú)" : s.name, s.phone ? el("span",{class:"ph"}," · " + s.phone) : null,
+      (me || adminKey) ? el("button",{"aria-label":"Quitar a "+s.name,title:"Quitar", onclick:()=>leave(t,s)},"×") : null);
+  });
+  const need = t.need === 1 ? "1 persona" : t.need + " personas";
+  const left = t.need - list.length;
+  let action;
+  if (imIn && !adminKey) action = el("span",{class:"done"},"Te sumaste ✓");
+  else if (full) action = el("span",{class:"done"},"Completa ✓");
+  else action = el("button",{class:"join", onclick:()=>join(t), ...(busy.has(t.id)?{disabled:""}:{})}, busy.has(t.id) ? "Guardando…" : "Me sumo");
+  return el("article",{class:"task"+(full?" full":"")+(imIn?" mine":"")},
+    el("p",{class:"t-title"}, t.title),
+    el("p",{class:"t-detail"}, t.detail),
+    el("div",{class:"t-meta"}, el("span",{class:"due"}, t.priority==="Día del evento" ? "El día del evento" : "Hasta el " + t.due), el("span",{}, "Se necesita " + need), (!full && list.length) ? el("span",{}, "Falta " + left) : null),
+    el("div",{class:"t-foot"}, el("div",{class:"names"}, names.length ? names : el("span",{class:"free"},"Libre")), action)
+  );
+}
+
+function render(){
+  if (!state) return;
+  if (isJunta && !state.admin) return;
+  $("nav").hidden = false;
+  const T = state.tasks, S = state.signups;
+  const filled = T.filter(t => (S[t.id]||[]).length > 0).length;
+  const urgOpen = T.filter(t => t.priority==="Urgente" && !(S[t.id]||[]).length).length;
+  if (state.admin && !$("adminbar")) $("nav").before(el("div",{class:"adminbar",id:"adminbar"},
+    el("p",{style:"margin:0"},"Vista de Junta: ves los números y puedes quitar cualquier nombre."),
+    el("div",{class:"admin-actions"},
+      el("button",{class:"abtn",onclick:downloadCsv},"Descargar lista (Excel)"),
+      el("button",{class:"abtn",onclick:()=>{ LS.set("yms-admin",""); location.href="/"; }},"Salir"),
+      el("button",{class:"abtn",onclick:copySummary},"Copiar resumen para WhatsApp"))));
+  $("taken").textContent = filled; $("takenOf").textContent = "de " + T.length + " tareas con responsable";
+  $("bar").style.width = (filled / T.length * 100).toFixed(1) + "%";
+  $("urgLeft").textContent = urgOpen ? urgOpen + (urgOpen===1?" urgente sin responsable":" urgentes sin responsable") : "Todas las urgentes cubiertas";
+
+  const nav = $("nav"); nav.replaceChildren(
+    ...[{id:"all",name:"Todos"}, ...state.fronts, {id:"people",name:"Quién hace qué"}].map(f => {
+      const open = f.id==="all" ? T.filter(t=>!(S[t.id]||[]).length).length : T.filter(t=>t.front===f.id && !(S[t.id]||[]).length).length;
+      return el("button",{class:"chip","aria-pressed":String(filter===f.id), onclick:()=>{ filter=f.id; render(); window.scrollTo({top: nav.offsetTop - 8, behavior:"smooth"}); }},
+        f.name, f.id!=="people" ? el("small",{}, open + " libres") : null);
+    }));
+
+  const main = $("main");
+  if (filter === "people") {
+    const by = new Map();
+    T.forEach(t => (S[t.id]||[]).forEach(s => { const k = s.name.toLowerCase(); if(!by.has(k)) by.set(k,{name:s.name,phone:s.phone||"",tasks:[]}); by.get(k).tasks.push(t.title); }));
+    const people = [...by.values()].sort((a,b)=>a.name.localeCompare(b.name,"es"));
+    main.replaceChildren(el("div",{class:"people"}, people.length ? people.map(p => el("div",{class:"person"}, el("b",{},p.name), p.phone ? el("span",{class:"ph"}, p.phone) : null, el("ul",{}, p.tasks.map(x=>el("li",{},x))))) : el("p",{class:"empty"},"Todavía nadie se ha sumado. ¡Sé la primera persona!")));
+    return;
+  }
+  const fronts = state.fronts.filter(f => filter==="all" || f.id===filter);
+  main.replaceChildren(...fronts.map(f => {
+    const ts = T.filter(t => t.front===f.id);
+    const open = ts.filter(t=>!(S[t.id]||[]).length).length;
+    return el("section",{class:"front", id:"f-"+f.id},
+      el("h2",{}, f.name),
+      el("p",{class:"front-meta"}, ts.length + " tareas · " + open + " libres"),
+      PRI.map(([p,c]) => { const g = ts.filter(t=>t.priority===p); return g.length ? [el("h3",{class:c}, p), el("div",{class:"list"}, g.map(taskCard))] : []; })
+    );
+  }));
+}
+
+if (isJunta && !adminKey) { $("nav").hidden = true; juntaLogin(); }
+else load();
+setInterval(() => { if (!document.hidden && !busy.size && !(isJunta && !adminKey)) load(); }, 5000);
+document.addEventListener("visibilitychange", () => { if (!document.hidden && !(isJunta && !adminKey)) load(); });
+</script>
+</body>
+</html>

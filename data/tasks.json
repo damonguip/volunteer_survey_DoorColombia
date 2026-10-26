@@ -1,0 +1,274 @@
+{
+ "fronts": [
+  {
+   "id": "ev",
+   "name": "Eventos y recaudación"
+  },
+  {
+   "id": "co",
+   "name": "Comunicación y marca"
+  },
+  {
+   "id": "al",
+   "name": "Alianzas"
+  },
+  {
+   "id": "pr",
+   "name": "Proyectos e impacto"
+  }
+ ],
+ "tasks": [
+  {
+   "front": "ev",
+   "id": "EV01",
+   "priority": "Urgente",
+   "title": "Diseñar las boletas digitales",
+   "detail": "Imagen, información, precio aprobado y enlace o QR de compra.",
+   "due": "29 oct",
+   "need": 1
+  },
+  {
+   "front": "ev",
+   "id": "EV03",
+   "priority": "Urgente",
+   "title": "Ser o conseguir la presentadora bilingüe",
+   "detail": "Conductora bilingüe para todo el evento.",
+   "due": "31 oct",
+   "need": 1
+  },
+  {
+   "front": "ev",
+   "id": "EV05",
+   "priority": "Urgente",
+   "title": "Contar la historia de las empanadas",
+   "detail": "Persona bilingüe que cuente la historia de las empanadas y los sabores de frutas en la degustación.",
+   "due": "3 nov",
+   "need": 1
+  },
+  {
+   "front": "ev",
+   "id": "EV06",
+   "priority": "Urgente",
+   "title": "Guiar el taller de camisetas y tote bags",
+   "detail": "Explicar y acompañar la personalización con stickers.",
+   "due": "3 nov",
+   "need": 1
+  },
+  {
+   "front": "ev",
+   "id": "EV07",
+   "priority": "Urgente",
+   "title": "Guiar el brindis con carajillo",
+   "detail": "Un relato cálido sobre el café, el licor y la tradición.",
+   "due": "5 nov",
+   "need": 1
+  },
+  {
+   "front": "ev",
+   "id": "EV08",
+   "priority": "Preparación",
+   "title": "Coordinar el brindis con Salento",
+   "detail": "Cantidades, tiempos de servicio, ingredientes y opciones sin alcohol.",
+   "due": "9 nov",
+   "need": 1
+  },
+  {
+   "front": "ev",
+   "id": "EV04",
+   "priority": "Preparación",
+   "title": "Escribir el libreto del evento",
+   "detail": "Bienvenida, causas, patrocinadores, gastronomía, taller, logo, brindis, salsa y despedida.",
+   "due": "12 nov",
+   "need": 1
+  },
+  {
+   "front": "ev",
+   "id": "EV09",
+   "priority": "Preparación",
+   "title": "Preparar y probar el taller",
+   "detail": "Instrucciones, materiales y una prueba de personalización.",
+   "due": "12 nov",
+   "need": 1
+  },
+  {
+   "front": "ev",
+   "id": "EV10",
+   "priority": "Preparación",
+   "title": "Coordinar sonido, horario y ensayo",
+   "detail": "Confirmarlo con todas las personas que intervienen.",
+   "due": "19 nov",
+   "need": 1
+  },
+  {
+   "front": "ev",
+   "id": "EV11",
+   "priority": "Día del evento",
+   "title": "Bienvenida y control de entradas",
+   "detail": "Recibir a los invitados y apoyar el programa.",
+   "due": "21 nov",
+   "need": 2
+  },
+  {
+   "front": "ev",
+   "id": "EV12",
+   "priority": "Día del evento",
+   "title": "Desmontaje con Salento",
+   "detail": "Dejar el espacio organizado después del cierre.",
+   "due": "21 nov",
+   "need": 2
+  },
+  {
+   "front": "co",
+   "id": "CO03",
+   "priority": "Urgente",
+   "title": "Invitaciones y posts bilingües",
+   "detail": "Piezas para promover la venta de entradas.",
+   "due": "30 oct",
+   "need": 1
+  },
+  {
+   "front": "co",
+   "id": "CO02",
+   "priority": "Urgente",
+   "title": "Diseñar los stickers",
+   "detail": "Elementos colombianos con la identidad aprobada.",
+   "due": "4 nov",
+   "need": 1
+  },
+  {
+   "front": "co",
+   "id": "CO01",
+   "priority": "Urgente",
+   "title": "Editar los videos de las causas",
+   "detail": "Con la información y los materiales ya recopilados.",
+   "due": "6 nov",
+   "need": 1
+  },
+  {
+   "front": "co",
+   "id": "CO04",
+   "priority": "Preparación",
+   "title": "Presentación visual y revelación del logo",
+   "detail": "Incluye las piezas de agradecimiento a patrocinadores.",
+   "due": "13 nov",
+   "need": 1
+  },
+  {
+   "front": "co",
+   "id": "CO05",
+   "priority": "Día del evento",
+   "title": "Fotos y video",
+   "detail": "Los momentos principales, respetando las autorizaciones.",
+   "due": "21 nov",
+   "need": 1
+  },
+  {
+   "front": "co",
+   "id": "CO06",
+   "priority": "Día del evento",
+   "title": "Historias de Instagram en vivo",
+   "detail": "Publicar durante el evento con material aprobado.",
+   "due": "21 nov",
+   "need": 1
+  },
+  {
+   "front": "al",
+   "id": "AL01",
+   "priority": "Urgente",
+   "title": "Conseguir 30 camisetas o tote bags",
+   "detail": "Contactar negocios que puedan donarlas para el taller.",
+   "due": "4 nov",
+   "need": 1
+  },
+  {
+   "front": "al",
+   "id": "AL04",
+   "priority": "Urgente",
+   "title": "Enseñar pasos básicos de salsa",
+   "detail": "O conseguir a alguien que lo haga, de forma sencilla e inclusiva.",
+   "due": "5 nov",
+   "need": 1
+  },
+  {
+   "front": "al",
+   "id": "AL05",
+   "priority": "Urgente",
+   "title": "Música colombiana en vivo",
+   "detail": "Saxofón, percusión, voz u otra propuesta para el espacio.",
+   "due": "5 nov",
+   "need": 1
+  },
+  {
+   "front": "al",
+   "id": "AL02",
+   "priority": "Urgente",
+   "title": "Buscar patrocinadores",
+   "detail": "Recuerdos, materiales, impresión u otros aportes, con visibilidad acordada.",
+   "due": "6 nov",
+   "need": 3
+  },
+  {
+   "front": "al",
+   "id": "AL06",
+   "priority": "Preparación",
+   "title": "Recuerdo de despedida",
+   "detail": "Algo pequeño y útil que dé a conocer DoorColombia.",
+   "due": "10 nov",
+   "need": 1
+  },
+  {
+   "front": "al",
+   "id": "AL03",
+   "priority": "Preparación",
+   "title": "Imprimir los stickers",
+   "detail": "Revisar la calidad y coordinar la entrega en Salento.",
+   "due": "13 nov",
+   "need": 1
+  },
+  {
+   "front": "al",
+   "id": "AL08",
+   "priority": "Preparación",
+   "title": "Agradecimiento a patrocinadores",
+   "detail": "Preparar el momento de reconocimiento durante el evento.",
+   "due": "13 nov",
+   "need": 1
+  },
+  {
+   "front": "al",
+   "id": "AL09",
+   "priority": "Día del evento",
+   "title": "Recibir y organizar materiales",
+   "detail": "Camisetas, stickers, recuerdos y aportes de patrocinadores.",
+   "due": "21 nov",
+   "need": 1
+  },
+  {
+   "front": "pr",
+   "id": "PR01",
+   "priority": "Urgente",
+   "title": "Escoger fotos y datos de las causas",
+   "detail": "Seleccionar material autorizado para los videos.",
+   "due": "30 oct",
+   "need": 1
+  },
+  {
+   "front": "pr",
+   "id": "PR03",
+   "priority": "Preparación",
+   "title": "Escribir el relato de cada causa",
+   "detail": "Un texto breve y claro para la conductora y los invitados.",
+   "due": "6 nov",
+   "need": 1
+  },
+  {
+   "front": "pr",
+   "id": "PR05",
+   "priority": "Día del evento",
+   "title": "Presentar las causas",
+   "detail": "Responder preguntas sobre el destino de las donaciones.",
+   "due": "21 nov",
+   "need": 1
+  }
+ ]
+}
