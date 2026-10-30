@@ -146,6 +146,15 @@
   },
   {
    "front": "co",
+   "id": "CO07",
+   "priority": "Urgente",
+   "title": "Video de presentación de DoorColombia",
+   "detail": "Un video corto que cuente quiénes somos, por qué nos unimos y qué buscamos.",
+   "due": "6 nov",
+   "need": 1
+  },
+  {
+   "front": "co",
    "id": "CO04",
    "priority": "Preparación",
    "title": "Presentación visual y revelación del logo",

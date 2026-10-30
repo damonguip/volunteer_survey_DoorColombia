@@ -6,7 +6,7 @@ Página de inscripción de voluntarios para el lanzamiento del 21 de noviembre. 
 
 - `index.html`: la página (sin frameworks).
 - `api/signups.js`: función de Vercel. `GET` devuelve tareas e inscripciones; `POST` inscribe; `DELETE` quita un nombre.
-- `data/tasks.json`: las 28 tareas. Para cambiar textos, fechas o cupos, edita este archivo y vuelve a desplegar.
+- `data/tasks.json`: las tareas. Para cambiar textos, fechas o cupos, edita este archivo y vuelve a desplegar.
 - `vercel.json`: hace que `/junta` abra la misma página.
 - `dev-server.js`: servidor local con almacenamiento en memoria (`npm run dev`, abre http://localhost:3000).
 
